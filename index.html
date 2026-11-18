@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>逃げる画像</title>
+
+<style>
+  #escapeImage {
+    position: absolute;
+    width: 150px;
+    cursor: pointer;
+    transition: left 0.15s, top 0.15s;
+  }
+</style>
+</head>
+
+<body>
+
+<img id="escapeImage" src="images/image.png">
+
+<script>
+const img = document.getElementById("escapeImage");
+
+function escape() {
+    const maxX = window.innerWidth - img.offsetWidth;
+    const maxY = window.innerHeight - img.offsetHeight;
+
+    const x = Math.random() * maxX;
+    const y = Math.random() * maxY;
+
+    img.style.left = x + "px";
+    img.style.top = y + "px";
+}
+
+img.addEventListener("mouseenter", escape);
+</script>
+
+</body>
+</html>
